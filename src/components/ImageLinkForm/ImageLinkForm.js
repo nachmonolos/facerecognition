@@ -1,16 +1,43 @@
-import React from 'react';
-import './ImageLinkForm.css';
+import React from "react";
+import "./ImageLinkForm.css";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import AspectRatioIcon from "@material-ui/icons/AspectRatio";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "purple",
+    },
+  },
+});
 
 const ImageLinkForm = () => {
+  const classes = useStyles();
   return (
     <div>
-      <p className='f3 white center'>
-        {'Face Detection'}
-      </p>
-      <div className='center'>
-        <div className='form pa4 br3 shadow-5 center'>
-          <input className='f4 pa2 w-70 center' type='text' />
-          <button className='w-30 grow f4 link ph3 pv2 dib white bg-light-purple'>Detect</button>
+      <p className="f3 white center">{"Face Detection"}</p>
+      <div className="center">
+        <div
+          className="form pa4 br3 shadow-5 center"
+          style={{ alignItems: "center" }}
+        >
+          <TextField
+            id="image-url"
+            variant="outlined"
+            placeholder="Image URL"
+            className={classes.root}
+            fullWidth
+          />
+          <Button
+            id="submit"
+            variant="contained"
+            size="large"
+            endIcon={<AspectRatioIcon />}
+          >
+            Detect
+          </Button>
         </div>
       </div>
     </div>
