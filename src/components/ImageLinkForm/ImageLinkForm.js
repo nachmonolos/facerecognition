@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ImageLinkForm = () => {
+const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
   const classes = useStyles();
   return (
     <div>
@@ -28,6 +28,7 @@ const ImageLinkForm = () => {
             variant="outlined"
             placeholder="Image URL"
             className={classes.root}
+            onChange={onInputChange}
             fullWidth
           />
           <Button
@@ -35,6 +36,7 @@ const ImageLinkForm = () => {
             variant="contained"
             size="large"
             endIcon={<AspectRatioIcon />}
+            onClick={onButtonSubmit}
           >
             Detect
           </Button>
