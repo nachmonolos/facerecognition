@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 10px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,4 +15,6 @@ code {
 
 button {
   cursor: pointer;
+  background-color: #552277 !important;
+  color: #fff !important;
 }

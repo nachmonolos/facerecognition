@@ -35,7 +35,7 @@ const ImageLinkForm = ({
           <TextField
             id="image-url"
             variant="outlined"
-            placeholder="Image URL"
+            label="Image URL"
             className={classes.root}
             onChange={onInputChange}
             onKeyPress={handleKeypress}
