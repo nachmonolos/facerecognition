@@ -72,12 +72,20 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      loading: false,
       input: "",
       imageURL: "",
       boxes: [],
-      display: "",
     };
   }
+
+  handleKeypress = event => {
+    console.log(event.key);
+    //it triggers by pressing the enter key
+    if (event.key === "Enter") {
+      this.onButtonSubmit();
+    }
+  };
 
   faceLocationArray = data => {
     const locationArray = data.outputs[0].data.regions;
@@ -97,7 +105,6 @@ class App extends Component {
         bottomRow: height - clarifaiFace.bottom_row * height,
       };
     });
-
     this.setState({ boxes: boxLocations });
     console.log(boxLocations);
   };
@@ -107,16 +114,19 @@ class App extends Component {
   };
 
   onButtonSubmit = () => {
-    this.setState({ imageURL: this.state.input });
-    console.log("click");
+    this.setState({ loading: true });
     app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+      .predict("d02b4508df58432fbb84e800597b8959", this.state.input)
       .then(response => {
         // There was a successful response
+        console.log(this.state.loading);
+        this.setState({ imageURL: this.state.input });
         this.faceBoxes(this.faceLocationArray(response));
+        this.setState({ loading: false });
       })
       .catch(error => {
         console.log(error);
+        this.setState({ loading: false });
       });
   };
 
@@ -130,12 +140,13 @@ class App extends Component {
         <ImageLinkForm
           onInputChange={this.onInputChange}
           onButtonSubmit={this.onButtonSubmit}
+          loading={this.state.loading}
+          handleKeypress={this.handleKeypress}
         />
 
         <FaceRecognition
           boxes={this.state.boxes}
           imageURL={this.state.imageURL}
-          display={this.state.display}
         />
       </div>
     );

@@ -1,7 +1,7 @@
 import React from "react";
 import "./FaceRecognition.css";
 
-const FaceRecognition = ({ imageURL, boxes, display }) => {
+const FaceRecognition = ({ imageURL, boxes }) => {
   return (
     <div className="center ma">
       <div className="absolute mt2">
@@ -23,7 +23,6 @@ const FaceRecognition = ({ imageURL, boxes, display }) => {
                 right: boxes[i].rightCol,
                 bottom: boxes[i].bottomRow,
                 left: boxes[i].leftCol,
-                display: { display },
               }}
             ></div>
           );

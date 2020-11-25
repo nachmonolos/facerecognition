@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import AspectRatioIcon from "@material-ui/icons/AspectRatio";
 import { makeStyles } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles({
   root: {
@@ -11,9 +12,17 @@ const useStyles = makeStyles({
       borderColor: "purple",
     },
   },
+  buttonProgress: {
+    color: "white",
+  },
 });
 
-const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
+const ImageLinkForm = ({
+  onInputChange,
+  onButtonSubmit,
+  loading,
+  handleKeypress,
+}) => {
   const classes = useStyles();
   return (
     <div>
@@ -29,13 +38,24 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
             placeholder="Image URL"
             className={classes.root}
             onChange={onInputChange}
+            onKeyPress={handleKeypress}
             fullWidth
           />
           <Button
+            disabled={loading}
             id="submit"
             variant="contained"
             size="large"
-            endIcon={<AspectRatioIcon />}
+            endIcon={
+              loading ? (
+                <CircularProgress
+                  size={24}
+                  className={classes.buttonProgress}
+                />
+              ) : (
+                <AspectRatioIcon />
+              )
+            }
             onClick={onButtonSubmit}
           >
             Detect
