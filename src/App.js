@@ -76,6 +76,7 @@ class App extends Component {
       loading: false,
       input: "",
       imageURL: "",
+      show: true,
       boxes: [],
       route: "signin",
     };
@@ -88,9 +89,7 @@ class App extends Component {
   handleKeypress = event => {
     console.log(event.key);
     //it triggers by pressing the enter key
-    if (event.key === "Enter") {
-      this.onButtonSubmit();
-    }
+    event.key === "Enter" && this.onButtonSubmit();
   };
 
   faceLocationArray = data => {
@@ -120,20 +119,19 @@ class App extends Component {
   };
 
   onButtonSubmit = () => {
-    this.setState({ loading: true });
+    this.setState({ loading: true, show: false });
     app.models
       .predict("d02b4508df58432fbb84e800597b8959", this.state.input)
       .then(response => {
         // There was a successful response
-        console.log(this.state.loading);
-        this.setState({ imageURL: this.state.input });
         this.faceBoxes(this.faceLocationArray(response));
-        this.setState({ loading: false });
+        this.setState({ loading: false, show: true });
       })
       .catch(error => {
         console.log(error);
-        this.setState({ loading: false });
-      });
+        this.setState({ loading: false, show: true });
+      })
+      .finally(this.setState({ imageURL: this.state.input }));
   };
 
   render() {
@@ -155,8 +153,10 @@ class App extends Component {
             />
 
             <FaceRecognition
-              boxes={this.state.boxes}
+              show={this.state.show}
+              display={this.state.display}
               imageURL={this.state.imageURL}
+              boxes={this.state.boxes}
             />
           </div>
         )}

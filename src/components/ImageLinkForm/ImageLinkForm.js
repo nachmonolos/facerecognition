@@ -49,7 +49,7 @@ const ImageLinkForm = ({
             endIcon={
               loading ? (
                 <CircularProgress
-                  size={24}
+                  size={22}
                   className={classes.buttonProgress}
                 />
               ) : (
