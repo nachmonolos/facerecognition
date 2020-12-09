@@ -84,7 +84,7 @@ class App extends Component {
     };
   }
 
-  onRouteChange = route => {
+  onRouteChange = (route) => {
     this.setState({ route: route });
 
     if (route === "signout") {
@@ -95,18 +95,18 @@ class App extends Component {
     console.log(this.state.isSignedIn);
   };
 
-  handleKeypress = event => {
+  handleKeypress = (event) => {
     console.log(event.key);
     //it triggers by pressing the enter key
     event.key === "Enter" && this.onButtonSubmit();
   };
 
-  faceLocationArray = data => {
+  faceLocationArray = (data) => {
     const locationArray = data.outputs[0].data.regions;
     return locationArray;
   };
 
-  faceBoxes = boxes => {
+  faceBoxes = (boxes) => {
     const boxLocations = boxes.map((face, i) => {
       const clarifaiFace = boxes[i].region_info.bounding_box;
       const image = document.getElementById("inputimage");
@@ -123,7 +123,7 @@ class App extends Component {
     console.log(boxLocations);
   };
 
-  onInputChange = event => {
+  onInputChange = (event) => {
     this.setState({ input: event.target.value });
   };
 
@@ -131,12 +131,12 @@ class App extends Component {
     this.setState({ loading: true, show: false });
     app.models
       .predict("d02b4508df58432fbb84e800597b8959", this.state.input)
-      .then(response => {
+      .then((response) => {
         // There was a successful response
         this.faceBoxes(this.faceLocationArray(response));
         this.setState({ loading: false, show: true });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         this.setState({ loading: false, show: true });
       })
