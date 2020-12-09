@@ -8,6 +8,7 @@ import Rank from "./components/Rank/Rank";
 import Particles from "react-particles-js";
 import Clarifai from "clarifai";
 import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/Register/SignUp";
 
 const app = new Clarifai.App({
   apiKey: "0c9557c8bb49414f855f8c6eac68fdd0",
@@ -78,12 +79,20 @@ class App extends Component {
       imageURL: "",
       show: true,
       boxes: [],
-      route: "signin",
+      route: "signout",
+      isSignedIn: false,
     };
   }
 
   onRouteChange = route => {
     this.setState({ route: route });
+
+    if (route === "signout") {
+      this.setState({ isSignedIn: false });
+    } else if (route === "home") {
+      this.setState({ isSignedIn: true });
+    }
+    console.log(this.state.isSignedIn);
   };
 
   handleKeypress = event => {
@@ -138,10 +147,11 @@ class App extends Component {
     return (
       <div className="App">
         <Particles className="particles" params={particlesOptions} />
-        <Navigation onRouteChange={this.onRouteChange} />
-        {this.state.route === "signin" ? (
-          <SignIn onRouteChange={this.onRouteChange} />
-        ) : (
+        <Navigation
+          onRouteChange={this.onRouteChange}
+          isSignedIn={this.state.isSignedIn}
+        />
+        {this.state.route === "home" ? (
           <div>
             <Logo />
             <Rank />
@@ -159,6 +169,10 @@ class App extends Component {
               boxes={this.state.boxes}
             />
           </div>
+        ) : this.state.route === "signin" ? (
+          <SignIn onRouteChange={this.onRouteChange} />
+        ) : (
+          <SignUp onRouteChange={this.onRouteChange} />
         )}
       </div>
     );

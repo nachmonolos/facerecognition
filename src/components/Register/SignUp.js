@@ -4,14 +4,12 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import "./SignIn.css";
+import "./SignUp.css";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -38,19 +36,30 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SignIn = ({ onRouteChange }) => {
+const SignUp = ({ onRouteChange }) => {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs" id="signin-container">
+    <Container component="main" maxWidth="xs" id="signup-container">
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign Up
         </Typography>
         <form className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            className={classes.root}
+            label="Name"
+            name="name"
+            autoFocus
+          />
           <TextField
             variant="outlined"
             margin="normal"
@@ -82,19 +91,8 @@ const SignIn = ({ onRouteChange }) => {
             onClick={() => onRouteChange("home")}
             className={classes.submit}
           >
-            Sign In
+            Sign Up
           </Button>
-          <Grid container style={{ justifyContent: "center" }}>
-            <Grid item>
-              <Link
-                onClick={() => onRouteChange("register")}
-                href="#"
-                variant="body2"
-              >
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={8}></Box>
@@ -102,4 +100,4 @@ const SignIn = ({ onRouteChange }) => {
   );
 };
 
-export default SignIn;
+export default SignUp;
