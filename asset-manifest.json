@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/facerecongnition/static/css/main.3d3e4d14.chunk.css",
-    "main.js": "/facerecongnition/static/js/main.1301f05d.chunk.js",
-    "main.js.map": "/facerecongnition/static/js/main.1301f05d.chunk.js.map",
-    "runtime-main.js": "/facerecongnition/static/js/runtime-main.c7dca0f3.js",
-    "runtime-main.js.map": "/facerecongnition/static/js/runtime-main.c7dca0f3.js.map",
-    "static/css/2.e2c2dfbb.chunk.css": "/facerecongnition/static/css/2.e2c2dfbb.chunk.css",
-    "static/js/2.1c2e9736.chunk.js": "/facerecongnition/static/js/2.1c2e9736.chunk.js",
-    "static/js/2.1c2e9736.chunk.js.map": "/facerecongnition/static/js/2.1c2e9736.chunk.js.map",
-    "static/js/3.41035eb7.chunk.js": "/facerecongnition/static/js/3.41035eb7.chunk.js",
-    "static/js/3.41035eb7.chunk.js.map": "/facerecongnition/static/js/3.41035eb7.chunk.js.map",
-    "index.html": "/facerecongnition/index.html",
-    "static/css/2.e2c2dfbb.chunk.css.map": "/facerecongnition/static/css/2.e2c2dfbb.chunk.css.map",
-    "static/css/main.3d3e4d14.chunk.css.map": "/facerecongnition/static/css/main.3d3e4d14.chunk.css.map",
-    "static/js/2.1c2e9736.chunk.js.LICENSE.txt": "/facerecongnition/static/js/2.1c2e9736.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/facerecongnition/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
+    "main.css": "/facerecognition/static/css/main.3d3e4d14.chunk.css",
+    "main.js": "/facerecognition/static/js/main.7185e6ab.chunk.js",
+    "main.js.map": "/facerecognition/static/js/main.7185e6ab.chunk.js.map",
+    "runtime-main.js": "/facerecognition/static/js/runtime-main.e8822edb.js",
+    "runtime-main.js.map": "/facerecognition/static/js/runtime-main.e8822edb.js.map",
+    "static/css/2.02983b87.chunk.css": "/facerecognition/static/css/2.02983b87.chunk.css",
+    "static/js/2.3cb6bd43.chunk.js": "/facerecognition/static/js/2.3cb6bd43.chunk.js",
+    "static/js/2.3cb6bd43.chunk.js.map": "/facerecognition/static/js/2.3cb6bd43.chunk.js.map",
+    "static/js/3.c99f126e.chunk.js": "/facerecognition/static/js/3.c99f126e.chunk.js",
+    "static/js/3.c99f126e.chunk.js.map": "/facerecognition/static/js/3.c99f126e.chunk.js.map",
+    "index.html": "/facerecognition/index.html",
+    "static/css/2.02983b87.chunk.css.map": "/facerecognition/static/css/2.02983b87.chunk.css.map",
+    "static/css/main.3d3e4d14.chunk.css.map": "/facerecognition/static/css/main.3d3e4d14.chunk.css.map",
+    "static/js/2.3cb6bd43.chunk.js.LICENSE.txt": "/facerecognition/static/js/2.3cb6bd43.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/facerecognition/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.c7dca0f3.js",
-    "static/css/2.e2c2dfbb.chunk.css",
-    "static/js/2.1c2e9736.chunk.js",
+    "static/js/runtime-main.e8822edb.js",
+    "static/css/2.02983b87.chunk.css",
+    "static/js/2.3cb6bd43.chunk.js",
     "static/css/main.3d3e4d14.chunk.css",
-    "static/js/main.1301f05d.chunk.js"
+    "static/js/main.7185e6ab.chunk.js"
   ]
 }
