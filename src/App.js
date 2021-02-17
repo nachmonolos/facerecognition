@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
-import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
-import Rank from "./components/Rank/Rank";
 import Particles from "react-particles-js";
 import Clarifai from "clarifai";
 import SignIn from "./components/SignIn/SignIn";
@@ -79,7 +77,7 @@ class App extends Component {
       imageURL: "",
       show: true,
       boxes: [],
-      route: "signout",
+      route: "home",
       isSignedIn: false,
     };
   }
@@ -153,14 +151,12 @@ class App extends Component {
         />
         {this.state.route === "home" ? (
           <div>
-            <Logo />
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
               loading={this.state.loading}
               handleKeypress={this.handleKeypress}
             />
-
             <FaceRecognition
               show={this.state.show}
               display={this.state.display}
